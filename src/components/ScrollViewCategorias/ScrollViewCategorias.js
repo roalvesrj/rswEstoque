@@ -1,0 +1,79 @@
+import React, {useState, useEffect} from 'react';
+import {View, Text, Image, ScrollView} from 'react-native';
+
+import serviceCategoria from '../../api/categoria';
+import serviceProduto from '../../api/produto';
+
+import styles from './Style';
+
+const ScrollViewCategorias = () => {
+  const [categorias, setCategorias] = useState([]);
+  const [produtos, setProdutos] = useState([]);
+  const [objtoProdutoCategoria, setObjtoProdutoCategoria] = useState([]);
+
+  useEffect(() => {
+    serviceCategoria
+      .listarTodos()
+      .then((response) => {
+        setCategorias(response.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    serviceProduto
+      .listarTodos()
+      .then((responde) => {
+        setProdutos(responde.data);
+      })
+      .catch((error) => console.log(error));
+
+    setObjtoProdutoCategoria(produtoPorCategoria());
+  }, []);
+
+  const produtoPorCategoria = () => {
+    var items = [];
+    var prods = [];
+
+    categorias.forEach((c) => {
+      produtos.forEach((p, index) => {
+        if (p.idCategoria === c.id) {
+          prods[index] = {
+            idProduto: p.id,
+            nomeProduto: p.nome,
+            qtdEstoque: p.qtdEstoque,
+            url: p.fotoLink,
+          };
+        }
+      });
+      items.push({idCategoria: c.id, nomeCategoria: c.nome, produtos: prods});
+      prods = [];
+    });
+
+    return items.filter((e) => e.produtos.length > 0);
+  };
+
+  return (
+    <View style={styles.container}>
+      {objtoProdutoCategoria.map((c, index) => (
+        <View key={index}>
+          <Text style={styles.destaque}>{c.nomeCategoria}</Text>
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={styles.containerCapas}>
+            {c.produtos.map((p, i) => (
+              <View key={i} style={styles.boxCapa}>
+                <Image style={styles.capa} source={{uri: p.url}} />
+                <Text style={styles.destaqueCapas}>{p.nomeProduto}</Text>
+                <Text style={styles.textoCapas}> Estoque: {p.qtdEstoque}</Text>
+              </View>
+            ))}
+          </ScrollView>
+        </View>
+      ))}
+    </View>
+  );
+};
+
+export default ScrollViewCategorias;
