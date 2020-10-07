@@ -31,7 +31,7 @@ const Login = ({ navigation }) => {
                 </Text>
                 <TouchableHighlight
                     style={Styles.button}
-                    underlayColor="#feec90"
+                    underlayColor="#fff"
                     onPress={() => {
                         setModalVisible(true);
                     }}>
@@ -51,51 +51,36 @@ const Login = ({ navigation }) => {
                     }}>
                     <View style={Styles.centeredView}>
                         <View style={Styles.modalView}>
-                            <View
-                                style={{ alignContent: 'space-between', flexDirection: 'row' }}>
-                                <View>
-                                    <Text>Faça o Login</Text>
-                                </View>
-                                <View>
+                            <View style={Styles.modalHeader}>
+                                <Text style={Styles.destaqueStyle}>Faça o Login</Text>
+                                <View style={Styles.modalSub}>
                                     <TouchableHighlight
-                                        style={Styles.openButton}
+                                        style={Styles.closeButton}
+                                        underlayColor="#fff"
                                         onPress={() => {
                                             setModalVisible(!modalVisible);
                                         }}>
-                                        <Icon name="close" style={Styles.icon} />
+                                        <Icon name="close" style={Styles.iconButton} />
                                     </TouchableHighlight>
                                 </View>
                             </View>
 
-                            <TextInput
-                                style={{
-                                    height: 40,
-                                    marginBottom: 10,
-                                    borderColor: 'gray',
-                                    borderWidth: 1,
-                                }}
-                            />
-                            <TextInput
-                                style={{
-                                    height: 40,
-                                    marginBottom: 10,
-                                    borderColor: 'gray',
-                                    borderWidth: 1,
-                                }}
-                                secureTextEntry={true}
-                            />
+                            <TextInput style={Styles.modalInput} placeholder={'Usuário'} />
+                            <TextInput style={Styles.modalInput} placeholder={'Senha'} secureTextEntry={true} />
 
-                            <TouchableHighlight
-                                style={Styles.button}
-                                underlayColor="#feec90"
-                                onPress={() =>
-                                    navigation.navigate('Home', setModalVisible(!modalVisible))
-                                }>
-                                <View style={{ flexDirection: 'row' }}>
-                                    <Icon name="login" style={Styles.icon} />
-                                    <Text style={Styles.buttonTexto}>ACESSAR</Text>
-                                </View>
-                            </TouchableHighlight>
+                            <View style={Styles.modalCenter}>
+                                <TouchableHighlight
+                                    style={Styles.button}
+                                    underlayColor="#feec90"
+                                    onPress={() =>
+                                        navigation.navigate('Home', setModalVisible(!modalVisible))
+                                    }>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Icon name="login" style={Styles.icon} />
+                                        <Text style={Styles.buttonTexto}>ACESSAR</Text>
+                                    </View>
+                                </TouchableHighlight>
+                            </View>
                         </View>
                     </View>
                 </Modal>
