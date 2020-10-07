@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Euclid Extra Bold'
     },
     icon: {
-        marginTop: 1,
+        marginTop: 4,
         marginRight: 5,
         color: '#333',
         fontSize: 20
@@ -56,6 +56,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    modalCenter: {
+        alignItems: 'center',
+        alignContent: 'center'
+    },
     modalView: {
         position: 'absolute',
         bottom: 0,
@@ -63,24 +67,48 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
         width: '90%',
-        padding: 35,
+        padding: 30,
+        paddingBottom: 0,
         shadowColor: "#000",
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5
     },
-    openButton: {
-        borderRadius: 20,
-        elevation: 2
+    modalHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
-    textStyle: {
-        color: "white",
-        fontWeight: "bold",
-        textAlign: "center"
+    modalSub: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row'
+    },
+    closeButton: {
+        position: 'absolute',
+        top: 0,
+        right: 0
+    },
+    iconButton: {
+        marginTop: 1,
+        marginRight: 5,
+        color: '#333',
+        fontSize: 26
+    },
+    destaqueStyle: {
+        marginBottom: 30,
+        fontSize: 20
     },
     modalText: {
         marginBottom: 15,
         textAlign: "center"
+    },
+    modalInput: {
+        height: 50,
+        marginBottom: 15,
+        padding: 5,
+        borderColor: 'gray',
+        borderWidth: 1,
+        borderRadius: 5
     }
 });
 
