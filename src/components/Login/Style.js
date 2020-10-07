@@ -1,13 +1,15 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+    scroll: {
+        backgroundColor: '#1c74d8'
+    },
     container: {
         flex: 1,
         alignContent: 'center',
         alignItems: 'center',
         paddingTop: 150,
-        paddingHorizontal: 35,
-        backgroundColor: '#1c74d8'
+        paddingHorizontal: 35
     },
     image: {
         marginBottom: 60
@@ -39,7 +41,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Euclid Extra'
     },
     link: {
-        paddingBottom: 30,
+        paddingBottom: 60,
         color: '#fff',
         fontFamily: 'Euclid Extra Bold'
     },
