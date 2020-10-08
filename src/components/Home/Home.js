@@ -13,7 +13,9 @@ const Home = () => {
   return (
     <>
       <Header />
-      <ListarProdutoPorCategoria />
+      <ScrollView>
+        <ListarProdutoPorCategoria />
+      </ScrollView>
       <Footer />
     </>
   );
