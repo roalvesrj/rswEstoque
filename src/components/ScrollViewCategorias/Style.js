@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Euclid Extra Bold',
   },
   textoCapas: {
-    color: '#999',
+    color: '#666',
   },
 });
 
