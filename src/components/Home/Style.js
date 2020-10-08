@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     },
     destaqueCapas: {
         marginBottom: 5,
-        color: '#fff',
+        color: '#666',
         fontSize: 16,
         fontWeight: 'bold',
         fontFamily: 'Euclid Extra Bold'
