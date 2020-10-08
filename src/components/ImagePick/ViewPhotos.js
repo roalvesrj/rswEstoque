@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const ViewPhotos = () => {
-    return (
-        <>
-            
-        </>
-    )
-}
+  return <></>;
+};
 
-export default ViewPhotos
+export default ViewPhotos;
