@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {View, Text, Image, ScrollView} from 'react-native';
 
 import serviceCategoria from '../../api/categoria';
@@ -27,11 +27,13 @@ const ScrollViewCategorias = () => {
         setProdutos(responde.data);
       })
       .catch((error) => console.log(error));
-
-    setObjtoProdutoCategoria(produtoPorCategoria());
   }, []);
 
-  const produtoPorCategoria = () => {
+  useEffect(() => {
+    setObjtoProdutoCategoria(produtoPorCategoria());
+  }, [produtos]);
+
+  const produtoPorCategoria = useCallback(() => {
     var items = [];
     var prods = [];
 
@@ -51,7 +53,7 @@ const ScrollViewCategorias = () => {
     });
 
     return items.filter((e) => e.produtos.length > 0);
-  };
+  }, []);
 
   return (
     <View style={styles.container}>
