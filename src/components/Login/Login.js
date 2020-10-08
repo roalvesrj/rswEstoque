@@ -14,6 +14,7 @@ import Styles from './Style';
 
 const Login = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
+    const [modalSenha, setModalSenha] = useState(false);
 
     return (
         <ScrollView style={Styles.scroll}>
@@ -28,6 +29,7 @@ const Login = ({ navigation }) => {
                 <Text style={Styles.descricao}>
                     Faça login para equilibrar suas compras, armazenagem e entregas
                 </Text>
+
                 <TouchableHighlight
                     style={Styles.button}
                     underlayColor="#fff"
@@ -39,7 +41,16 @@ const Login = ({ navigation }) => {
                         <Text style={Styles.buttonTexto}>FAZER LOGIN</Text>
                     </View>
                 </TouchableHighlight>
-                <Text style={Styles.link}>ESQUECI MINHA SENHA</Text>
+
+                <TouchableHighlight
+                    underlayColor="transparent"
+                    onPress={() => {
+                        setModalSenha(true);
+                    }}>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={Styles.link}>ESQUECI MINHA SENHA</Text>
+                    </View>
+                </TouchableHighlight>
 
                 <Modal
                     animationType="slide"

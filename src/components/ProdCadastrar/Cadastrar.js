@@ -7,10 +7,10 @@ import {
   ScrollView,
 } from 'react-native';
 
-import Styles from './Style';
-
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+
+
 
 const ProdCadastrar = ({navigation}) => {
   return (
