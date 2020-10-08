@@ -10,10 +10,11 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import IconFA5 from 'react-native-vector-icons/FontAwesome5';
 import Styles from './Style';
 
 const Login = ({ navigation }) => {
-    const [modalVisible, setModalVisible] = useState(false);
+    const [modalLogin, setModalLogin] = useState(false);
     const [modalSenha, setModalSenha] = useState(false);
 
     return (
@@ -34,7 +35,7 @@ const Login = ({ navigation }) => {
                     style={Styles.button}
                     underlayColor="#fff"
                     onPress={() => {
-                        setModalVisible(true);
+                        setModalLogin(true);
                     }}>
                     <View style={{ flexDirection: 'row' }}>
                         <Icon name="login" style={Styles.icon} />
@@ -47,7 +48,7 @@ const Login = ({ navigation }) => {
                     onPress={() => {
                         setModalSenha(true);
                     }}>
-                    <View style={{ flexDirection: 'row' }}>
+                    <View>
                         <Text style={Styles.link}>ESQUECI MINHA SENHA</Text>
                     </View>
                 </TouchableHighlight>
@@ -55,9 +56,9 @@ const Login = ({ navigation }) => {
                 <Modal
                     animationType="slide"
                     transparent={true}
-                    visible={modalVisible}
+                    visible={modalLogin}
                     onRequestClose={() => {
-                        setModalVisible(!modalVisible);
+                        setModalLogin(!modalLogin);
                     }}>
                     <View style={Styles.centeredView}>
                         <View style={Styles.modalView}>
@@ -68,7 +69,7 @@ const Login = ({ navigation }) => {
                                         style={Styles.closeButton}
                                         underlayColor="#fff"
                                         onPress={() => {
-                                            setModalVisible(!modalVisible);
+                                            setModalLogin(!modalLogin);
                                         }}>
                                         <Icon name="close" style={Styles.iconButton} />
                                     </TouchableHighlight>
@@ -83,11 +84,53 @@ const Login = ({ navigation }) => {
                                     style={Styles.button}
                                     underlayColor="#feec90"
                                     onPress={() =>
-                                        navigation.navigate('Home', setModalVisible(!modalVisible))
+                                        navigation.navigate('Home', setModalLogin(!modalLogin))
                                     }>
                                     <View style={{ flexDirection: 'row' }}>
                                         <Icon name="login" style={Styles.icon} />
                                         <Text style={Styles.buttonTexto}>ACESSAR</Text>
+                                    </View>
+                                </TouchableHighlight>
+                            </View>
+                        </View>
+                    </View>
+                </Modal>
+
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={modalSenha}
+                    onRequestClose={() => {
+                        setModalSenha(!modalSenha);
+                    }}>
+                    <View style={Styles.centeredView}>
+                        <View style={Styles.modalView}>
+                            <View style={Styles.modalHeader}>
+                                <Text style={Styles.destaqueStyle}>Recuperar senha</Text>
+                                <View style={Styles.modalSub}>
+                                    <TouchableHighlight
+                                        style={Styles.closeButton}
+                                        underlayColor="#fff"
+                                        onPress={() => {
+                                            setModalSenha(!modalSenha);
+                                        }}>
+                                        <Icon name="close" style={Styles.iconButton} />
+                                    </TouchableHighlight>
+                                </View>
+                            </View>
+
+                            <TextInput style={Styles.modalInput} placeholder={'Usuário'} />
+                            <TextInput style={Styles.modalInput} placeholder={'Nova senha'} secureTextEntry={true} />
+                            <TextInput style={Styles.modalInput} placeholder={'Repita a senha'} secureTextEntry={true} />
+
+                            <View style={Styles.modalCenter}>
+                                <TouchableHighlight
+                                    style={Styles.button}
+                                    underlayColor="#feec90"
+                                >
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <IconFA5 name="key" style={Styles.icon} />
+                                        <Text style={Styles.buttonTexto}>RECUPERAR</Text>
                                     </View>
                                 </TouchableHighlight>
                             </View>
