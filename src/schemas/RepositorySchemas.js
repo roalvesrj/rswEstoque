@@ -6,9 +6,9 @@ class RepositorySchema {
     primaryKey: 'id',
     properties: {
       id: {type: 'int', indexed: true},
-      categoria: 0,
+      idcategoria: 0,
       nome: 'string',
-      funcionario: 0,
+      idfuncionario: 0,
       nomeCategoria: 'string',
       nomeFuncionario: 'string',
       qtdEstoque: 0,
