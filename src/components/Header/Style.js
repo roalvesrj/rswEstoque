@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     icon: {
         paddingLeft: 30,
         color: '#fff',
-        fontSize: 26
+        fontSize: 28
     }
 });
 

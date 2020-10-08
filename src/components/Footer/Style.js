@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        paddingVertical: 5,
+        paddingVertical: 10,
         paddingHorizontal: 40,
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -14,11 +14,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     texto: {
-        color: '#999',
+        color: '#fff',
         fontSize: 12
     },
     icon: {
-        color: '#fdd922',
+        color: '#fff',
         fontSize: 26
     }
 });

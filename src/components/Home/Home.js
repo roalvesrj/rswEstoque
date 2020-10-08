@@ -6,7 +6,7 @@ import Footer from './../Footer/Footer';
 
 import Styles from './Style';
 
-const Home = () => {
+const Home = ({ navigation }) => {
     return (
         <>
             <Header />
@@ -95,7 +95,7 @@ const Home = () => {
                     </ScrollView>
                 </View>
             </ScrollView>
-            <Footer />
+            <Footer navigation={navigation} />
         </>
     );
 };
