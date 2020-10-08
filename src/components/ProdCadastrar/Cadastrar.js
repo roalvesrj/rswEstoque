@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Image,
@@ -11,8 +11,50 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 
+const ProdCadastrar = () => {
 
-const ProdCadastrar = ({navigation}) => {
+  const [categorias, setCategorias] = useState([]);
+
+  const [produto, setProduto] = useState({
+    dataFabricacao: "2019-10-01T00:00:00Z",
+    descricao: "",
+    fotoLink: "",
+    id: 0,
+    idCategoria: 0,
+    idFuncionario: 1,
+    nome: "",
+    nomeCategoria: "",
+    nomeFuncionario: "",
+    qtdEstoque: 0,
+    valor: 0,
+  });
+
+  useEffect(() => {
+    const handleListCategorias = async () => {
+      try {
+        const response = await api.get("/categoria");
+        const list = response.data;
+        const namesList = [];
+        list.forEach((item) => {
+          namesList.push(item);
+        });
+        setCategorias(namesList);
+      } catch (error) {
+        alert("Erro no acesso a API");
+      }
+    };
+    handleListCategorias();
+  }, []);
+
+  const handleAddProduct = async () => {
+    try {
+      await api.post("/produto", produto);
+    } catch (error) {
+      alert("Erro no acesso a API");
+    }
+  };
+
+
   return (
     <>
       <Header />
