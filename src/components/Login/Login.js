@@ -14,6 +14,7 @@ import Styles from './Style';
 
 const Login = ({ navigation }) => {
     const [modalVisible, setModalVisible] = useState(false);
+    const [modalSenha, setModalSenha] = useState(false);
 
     return (
         <ScrollView style={Styles.scroll}>
@@ -28,6 +29,7 @@ const Login = ({ navigation }) => {
                 <Text style={Styles.descricao}>
                     Faça login para equilibrar suas compras, armazenagem e entregas
                 </Text>
+
                 <TouchableHighlight
                     style={Styles.button}
                     underlayColor="#fff"
@@ -39,7 +41,16 @@ const Login = ({ navigation }) => {
                         <Text style={Styles.buttonTexto}>FAZER LOGIN</Text>
                     </View>
                 </TouchableHighlight>
-                <Text style={Styles.link}>ESQUECI MINHA SENHA</Text>
+
+                <TouchableHighlight
+                    underlayColor="transparent"
+                    onPress={() => {
+                        setModalSenha(true);
+                    }}>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={Styles.link}>ESQUECI MINHA SENHA</Text>
+                    </View>
+                </TouchableHighlight>
 
                 <Modal
                     animationType="slide"
@@ -77,6 +88,49 @@ const Login = ({ navigation }) => {
                                     <View style={{ flexDirection: 'row' }}>
                                         <Icon name="login" style={Styles.icon} />
                                         <Text style={Styles.buttonTexto}>ACESSAR</Text>
+                                    </View>
+                                </TouchableHighlight>
+                            </View>
+                        </View>
+                    </View>
+                </Modal>
+
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={modalVisible}
+                    onRequestClose={() => {
+                        setModalSenha(!modalSenha);
+                    }}>
+                    <View style={Styles.centeredView}>
+                        <View style={Styles.modalView}>
+                            <View style={Styles.modalHeader}>
+                                <Text style={Styles.destaqueStyle}>Recuperar senha</Text>
+                                <View style={Styles.modalSub}>
+                                    <TouchableHighlight
+                                        style={Styles.closeButton}
+                                        underlayColor="#fff"
+                                        onPress={() => {
+                                            setModalSenha(!modalSenha);
+                                        }}>
+                                        <Icon name="close" style={Styles.iconButton} />
+                                    </TouchableHighlight>
+                                </View>
+                            </View>
+
+                            <TextInput style={Styles.modalInput} placeholder={'Usuário'} />
+                            <TextInput style={Styles.modalInput} placeholder={'Senha'} secureTextEntry={true} />
+
+                            <View style={Styles.modalCenter}>
+                                <TouchableHighlight
+                                    style={Styles.button}
+                                    underlayColor="#feec90"
+                                    onPress={() =>
+                                        navigation.navigate('Home', setModalSenha(!modalSenha))
+                                    }>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Icon name="login" style={Styles.icon} />
+                                        <Text style={Styles.buttonTexto}>RECUPERAR</Text>
                                     </View>
                                 </TouchableHighlight>
                             </View>
