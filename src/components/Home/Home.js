@@ -13,8 +13,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <ImagePick></ImagePick>
-     
+      <ListarProdutoPorCategoria />
       <Footer />
     </>
   );
