@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignContent: 'center',
         alignItems: 'center',
-        paddingTop: 150,
+        paddingVertical: 120,
         paddingHorizontal: 35
     },
     image: {
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     descricao: {
-        paddingBottom: 140,
+        paddingBottom: 120,
         color: '#fff',
         fontFamily: 'Euclid Extra Bold',
         textAlign: 'center'
