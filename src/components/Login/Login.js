@@ -1,13 +1,12 @@
-import React, { useState, Component } from 'react';
+import React, { useState } from 'react';
 import {
     View,
     Text,
     Image,
     TouchableHighlight,
-    Alert,
     Modal,
     TextInput,
-    ScrollView,
+    ScrollView
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
