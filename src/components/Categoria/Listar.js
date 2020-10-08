@@ -11,7 +11,7 @@ const Listar = ({ navigation }) => {
         <>
             <Header />
             <ScrollView>
-                <Text>Lista de Produtos</Text>
+                <Text>Lista de Categorias</Text>
             </ScrollView>
             <Footer navigation={navigation} />
         </>
