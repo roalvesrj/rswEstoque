@@ -14,9 +14,7 @@ const Home = () => {
     <>
       <Header />
       <ImagePick></ImagePick>
-      <ScrollView>
-        <ListarProdutoPorCategoria />
-      </ScrollView>
+     
       <Footer />
     </>
   );

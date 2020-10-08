@@ -23,22 +23,22 @@ const ScrollViewCategorias = () => {
   useEffect(() => {
     serviceProduto
       .listarTodos()
-      .then((responde) => {
-        setProdutos(responde.data);
+      .then((response) => {
+        setProdutos(response.data);
       })
       .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
-    setObjtoProdutoCategoria(produtoPorCategoria());
-  }, [produtos]);
+    setObjtoProdutoCategoria(produtoPorCategoria(produtos, categorias));
+  }, [produtos, categorias, produtoPorCategoria]);
 
-  const produtoPorCategoria = useCallback(() => {
+  const produtoPorCategoria = useCallback((_prods, _cats) => {
     var items = [];
     var prods = [];
 
-    categorias.forEach((c) => {
-      produtos.forEach((p, index) => {
+    _cats.forEach((c) => {
+      _prods.forEach((p, index) => {
         if (p.idCategoria === c.id) {
           prods[index] = {
             idProduto: p.id,
