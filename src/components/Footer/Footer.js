@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 import Styles from './Style';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Footer = () => {
     return (
@@ -13,12 +13,12 @@ const Footer = () => {
                     <Text style={Styles.texto}>Início</Text>
                 </View>
                 <View style={Styles.subcontainer}>
-                    <Icon name="compass" style={Styles.icon} />
-                    <Text style={Styles.texto}>Explorar</Text>
+                    <Icon name="list-ul" style={Styles.icon} />
+                    <Text style={Styles.texto}>Categorias</Text>
                 </View>
                 <View style={Styles.subcontainer}>
-                    <Icon name="music-box-multiple" style={Styles.icon} />
-                    <Text style={Styles.texto}>Biblioteca</Text>
+                    <Icon name="boxes" style={Styles.icon} />
+                    <Text style={Styles.texto}>Produtos</Text>
                 </View>
             </View>
         </>
