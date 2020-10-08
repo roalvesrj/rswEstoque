@@ -64,7 +64,11 @@ const ScrollViewCategorias = () => {
             style={styles.containerCapas}>
             {c.produtos.map((p, i) => (
               <View key={i} style={styles.boxCapa}>
-                <Image style={styles.capa} source={{uri: p.url}} />
+                <Image
+                  style={styles.capa}
+                  source={{uri: p.url}}
+                  defaultSource={require('./../../../assets/images/capa03.png')}
+                />
                 <Text style={styles.destaqueCapas}>{p.nomeProduto}</Text>
                 <Text style={styles.textoCapas}> Estoque: {p.qtdEstoque}</Text>
               </View>

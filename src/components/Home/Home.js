@@ -5,6 +5,7 @@ import Header from './../Header/Header';
 import Footer from './../Footer/Footer';
 
 import ListarProdutoPorCategoria from '../ScrollViewCategorias/ScrollViewCategorias';
+import ImagePick from '../ImagePick/ImagePick';
 
 import Styles from './Style';
 
@@ -12,6 +13,7 @@ const Home = () => {
   return (
     <>
       <Header />
+      <ImagePick></ImagePick>
       <ScrollView>
         <ListarProdutoPorCategoria />
       </ScrollView>
