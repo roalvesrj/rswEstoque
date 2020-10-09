@@ -1,5 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {View, TextInput, TouchableHighlight, ScrollView} from 'react-native';
+import {
+  View,
+  TextInput,
+  TouchableHighlight,
+  ScrollView,
+  Text,
+} from 'react-native';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -7,7 +13,6 @@ import {Picker} from '@react-native-community/picker';
 import ImagePick from '../ImagePick/ImagePick';
 import serviceCategoria from '../../api/categoria';
 import serviceProduto from '../../api/produto';
-import ButtonCadastrar from '../Form/ButtonCadastrar';
 
 import Styles from './Style';
 
@@ -52,6 +57,18 @@ const ProdCadastrar = ({navigation}) => {
     setValor('');
   };
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    console.log(name)
+
+    setProduto({ ...produto, [name]: value })
+    if(name == "nome")
+    {setNome(value)}
+    else {setDescricao(value)}
+    
+   
+};
+
   useEffect(() => {
     serviceCategoria
       .listarTodos()
@@ -71,9 +88,8 @@ const ProdCadastrar = ({navigation}) => {
           </View>
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
-              <TextInput
+              <TextInput name="dataFabricacao" value={dataFabricacao} onChange={e => handleInputChange(e)}
                 style={Styles.Input}
-                value={dataFabricacao}
                 placeholder="Data de fabricação"
               />
             </TouchableHighlight>
@@ -81,14 +97,16 @@ const ProdCadastrar = ({navigation}) => {
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
               <View>
-                <TextInput style={Styles.Input} placeholder="descricao" value={descricao}/>
+                <TextInput name="descricao" value={descricao} onChange={e => handleInputChange(e)} 
+                style={Styles.Input} placeholder="descricao" />
               </View>
             </TouchableHighlight>
           </View>
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
               <View>
-                <TextInput style={Styles.Input} placeholder="nome" value={nome}/>
+                <TextInput name="nome" value={nome} onChange={e => handleInputChange(e)}
+                style={Styles.Input} placeholder="nome" />
               </View>
             </TouchableHighlight>
           </View>
@@ -102,18 +120,24 @@ const ProdCadastrar = ({navigation}) => {
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
               <View>
-                <TextInput style={Styles.Input} placeholder="qtdEstoque" value={qtdEstoque}/>
+                <TextInput name="qtdEstoque" value={qtdEstoque} onChange={e => handleInputChange(e)}
+                style={Styles.Input} placeholder="qtdEstoque" />
               </View>
             </TouchableHighlight>
           </View>
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
               <View>
-                <TextInput style={Styles.Input} placeholder="valor R$" value={valor}/>
+                <TextInput name="valor" value={valor} onChange={e => handleInputChange(e)}
+                style={Styles.Input} placeholder="valor R$" />
               </View>
             </TouchableHighlight>
           </View>
-          <ButtonCadastrar onPress={handleCadastrar} />
+          <View style={Styles.ContainerButtonCadastrar}>
+            <TouchableHighlight style={Styles.Button} onPress={handleCadastrar}>
+              <Text style={Styles.ButtonText}>Cadastrar</Text>
+            </TouchableHighlight>
+          </View>
         </View>
       </ScrollView>
       <Footer navigation={navigation} />
