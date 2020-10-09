@@ -1,32 +1,39 @@
-import React from 'react';
-import {View, Text, TextInput, TouchableHighlight} from 'react-native';
-import Style from './Style';
+import React, {useState} from 'react';
+import {View, Text, Input, TouchableHighlight} from 'react-native';
 import getReaml from '../../services/realm;';
 import style from './Style';
 
 const Funcionario = () => {
+  const [input, setInput] = useState('');
+
+  async function saveFuncionario(funcionario) {
+    const data = {};
+
+    const realm = await getReaml();
+  }
+
   return (
     <>
       <Text>Cadastro de Funcionário</Text>
-      <View style={style.txtInputOne}>
-        <TextInput placeholder="Nome" />
+      <View style={style.inputOne}>
+        <Input value={input} onChangeText={setInput} placeholder="Nome" />
       </View>
-      <View style={style.txtInputTwo}>
-        <TextInput placeholder="CPF" />
+      <View style={style.inputTwo}>
+        <Input value={input} onChangeText={setInput} placeholder="CPF" />
       </View>
-      <View style={style.txtInputThree}>
-        <TextInput placeholder="Senha" />
+      <View style={style.inputThree}>
+        <Input value={input} onChangeText={setInput} placeholder="Senha" />
       </View>
       <TouchableHighlight
         style={Style.addButton}
-        onPress={() => login(homePage)}>
-        <Text style={Style.addButtonText}>Log in</Text>
+        onPress={handleAddFuncionario}>
+        <Text style={Style.addButtonText}>Cadastrar</Text>
       </TouchableHighlight>
     </>
   );
 };
 
-const realm = await getReaml();
+export default Funcionario;
 
 realm.write(() => {
   const produto = realm.create('Repository');
