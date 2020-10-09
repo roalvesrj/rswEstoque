@@ -13,6 +13,74 @@ import { Picker } from '@react-native-community/picker';
 import serviceCategoria from '../../api/categoria';
 import serviceProduto from '../../api/produto';
 
+/*
+//import ProdutoService from '../../api/produto';
+
+//import Alert from "react-bootstrap/Alert";
+
+const ProdCadastrar = () => {
+  /*const [produto, setProduto] = useState();
+  const [show, setShow] = useState(false);
+  const [variant, setVariant] = useState('');
+  const [dataFabricacao, setDataFabricacao] = useState('');
+  const [descricao, setDescricao] = useState('');
+  const [fotoLink, setFotoLink] = useState('');
+  const [nome, setNome] = useState('');
+  const [nomeCategoria, setNomeCategoria] = useState('');
+  const [nomeFuncionario, setNomeFuncionario] = useState('');
+  const [qtdEstoque, setQtdEstoque] = useState('');
+  const [valor, setValor] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let data = {
+      dataFabricacao: produto.dataFabricacao,
+      descricao: produto.descricao,
+      fotoLink: produto.fotoLink,
+      id: 0,
+      idCategoria: 0,
+      idFuncionario: 1,
+      nome: produto.nome,
+      nomeCategoria: produto.nomeCategoria,
+      nomeFuncionario: produto.nomeFuncionario,
+      qtdEstoque: produto.qtdEstoque,
+      valor: produto.valor,
+    };
+
+    ProdutoService.incluir(data)
+      .then((response) => {
+        if (response.status === 201) {
+          setVariant('success');
+          setMensagem('Produto criado com sucesso!');
+          setShow(true);
+        }
+      })
+      .catch((error) => {
+        setVariant('danger');
+        setMensagem('Erro ao cadastrar!');
+        setShow(true);
+      });
+
+    setTimeout(() => {
+      setShow(false);
+    }, 4000);
+
+    console.log(data);
+
+    setProduto('');
+    setDataFabricacao('');
+    setDescricao('');
+    setFotoLink('');
+    setNome('');
+    setNomeCategoria('');
+    setNomeFuncionario('');
+    setQtdEstoque('');
+    setValor('');
+  };*/
+
+
+
+
 import Styles from './Style';
 
 const ProdCadastrar = ({ navigation }) => {
