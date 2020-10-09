@@ -12,10 +12,11 @@ import Footer from '../Footer/Footer';
 import { Picker } from '@react-native-community/picker';
 import serviceCategoria from '../../api/categoria';
 import serviceProduto from '../../api/produto';
-
+import ImagePick from '../ImagePick/ImagePick';
 import Styles from './Style';
 
 const ProdCadastrar = ({ navigation }) => {
+    const [url, setUrl] = useState('');
     const [categorias, setCategorias] = useState([]);
     const [produto, setProduto] = useState();
 
@@ -34,7 +35,7 @@ const ProdCadastrar = ({ navigation }) => {
             <ScrollView>
                 <View style={Styles.Container}>
                     <View style={Styles.ContainerImage}>
-                        <Image style={Styles.Image} />
+                        <ImagePick navigation={navigation} url={setUrl} />
                     </View>
                     <View style={Styles.ContainerButton}>
                         <TouchableHighlight>
