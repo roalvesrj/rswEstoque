@@ -10,8 +10,6 @@ import {
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-
-
 const ProdCadastrar = ({navigation}) => {
   return (
     <>
@@ -19,7 +17,7 @@ const ProdCadastrar = ({navigation}) => {
       <ScrollView>
         <View style={Styles.Container}>
           <View style={Styles.ContainerImage}>
-            <Image style={Styles.Image}/>
+            <Image style={Styles.Image} />
           </View>
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
