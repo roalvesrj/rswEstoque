@@ -1,9 +1,9 @@
 import Realm from 'realm';
-import RepositorySchema from '../schemas/RepositorySchemas';
+import ProdutoSchema from '../schemas/ProdutoSchema';
 
 function getRealm() {
   return Realm.open({
-    schema: [RepositorySchema],
+    schema: [ProdutoSchema],
   });
 }
 
