@@ -28,7 +28,7 @@ const ProdCadastrar = ({navigation}) => {
 
   const handleCadastrar = () => {
     let data = {
-      dataFabricacao: '',
+      dataFabricacao: '2019-10-01T00:00:00Z',
       idCategoria: idCategoria,
       descricao: descricao,
       nome: nome,
