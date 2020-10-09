@@ -15,7 +15,7 @@ const Home = ({ navigation }) => {
         <>
             <Header />
             <ScrollView showsVerticalScrollIndicator={false}>
-                <ListarProdutoPorCategoria />
+                <ListarProdutoPorCategoria navigation={navigation} />
             </ScrollView>
             <Text>{url}</Text>
             <Footer navigation={navigation} />
