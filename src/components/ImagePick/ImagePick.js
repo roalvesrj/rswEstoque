@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Image, Text, StyleSheet} from 'react-native';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import ImagePicker from 'react-native-image-crop-picker';
 import {ActionSheet, Root} from 'native-base';
@@ -7,12 +8,22 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 
 //import styles from './Style';
 
-const ImagePick = () => {
+const ImagePick = (props) => {
   const [resource, setResource] = useState('');
+  const {url} = props;
 
-  const handleRemoveImage = () => {};
+  useEffect(() => {
+    url(resource);
+  }, [resource, url]);
+
+  const handleRemoveImage = () => {
+    setResource('');
+  };
   const handleSelectImage = () => {
-    const buttons = ['Camera', 'Photo Library', 'Cancel'];
+    const buttons = [
+      {text: 'Galeria', icon: 'aperture', iconColor: '#ea943b'},
+      {text: 'Remover', icon: 'trash', iconColor: '#fa213b'},
+    ];
     ActionSheet.show(
       {
         options: buttons,
@@ -21,9 +32,10 @@ const ImagePick = () => {
       (buttonIndex) => {
         switch (buttonIndex) {
           case 0:
+            choosePhotosFromGallery();
             break;
           case 1:
-            choosePhotosFromGallery();
+            handleRemoveImage();
             break;
           default:
             break;
@@ -36,12 +48,10 @@ const ImagePick = () => {
     ImagePicker.openPicker({
       width: 300,
       height: 200,
-      multiple: true,
+      multiple: false,
     })
       .then((images) => {
-        if (images.length > 0) {
-          navigateToViewPhotos(images);
-        }
+        setResource(images.path);
       })
       .catch((err) => {
         console.log(' Error fetching images from gallery ', err);
@@ -50,12 +60,15 @@ const ImagePick = () => {
   return (
     <Root>
       <View style={styles.container}>
-        <TouchableOpacity onPress={handleRemoveImage}>
-          <Text style={styles.buttonText}>Deletar</Text>
-        </TouchableOpacity>
-        <Image style={{width: 200, height: 200}} />
         <TouchableOpacity onPress={handleSelectImage}>
-          <Text style={{width: 200, height: 200}}>Selecinar</Text>
+          {resource === '' ? (
+            <Image
+              style={styles.image}
+              source={require('./../../../assets/images/not-found.png')}
+            />
+          ) : (
+            <Image style={styles.image} source={{uri: resource}} />
+          )}
         </TouchableOpacity>
       </View>
     </Root>
@@ -65,27 +78,16 @@ const ImagePick = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    paddingVertical: 30,
-    paddingHorizontal: 10,
-    alignContent: 'center',
-    backgroundColor: '#fafafa',
-  },
-
-  image: {
-    flex: 1,
-    width: 185,
-    height: 185,
-    marginBottom: 5,
-  },
-
-  button: {
-    width: 180,
-    height: 60,
-    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 5,
+    backgroundColor: '#fff',
+    marginTop: 50,
+  },
+  image: {
+    margin: 5,
+    width: '100%',
+    minWidth: '50%',
+    height: 150,
   },
 });
 
