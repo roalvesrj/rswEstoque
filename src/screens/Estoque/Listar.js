@@ -1,9 +1,8 @@
 import React from 'react';
-import { Text, ScrollView, View, TouchableHighlight } from 'react-native';
+import { ScrollView, Text, View, TouchableHighlight } from 'react-native';
 
-import Header from './../Header/Header';
-import Footer from './../Footer/Footer';
-
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 import Styles from './Style';
 
 const Listar = ({ navigation }) => {
