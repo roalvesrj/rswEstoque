@@ -12,23 +12,6 @@ import Footer from '../Footer/Footer';
 import {Picker} from '@react-native-community/picker';
 import serviceCategoria from '../../api/categoria';
 import serviceProduto from '../../api/produto';
-<<<<<<< HEAD
-//import serviceProduto from '../../api/produto';
-//import Alert from "react-bootstrap/Alert";
-
-import Styles from './Style';
-
-const ProdCadastrar = ({navigation}) => {
-  const [categorias, setCategorias] = useState([]);
-  const [produto, setProduto] = useState();
-  const [show, setShow] = useState(false);
-  const [variant, setVariant] = useState('');
-  const [dataFabricacao, setDataFabricacao] = useState('');
-  const [descricao, setDescricao] = useState('');
-  const [nome, setNome] = useState('');
-  const [qtdEstoque, setQtdEstoque] = useState('');
-  const [valor, setValor] = useState('');
-=======
 import ImagePick from '../ImagePick/ImagePick';
 import Styles from './Style';
 
@@ -36,7 +19,6 @@ const ProdCadastrar = ({ navigation }) => {
     const [url, setUrl] = useState('');
     const [categorias, setCategorias] = useState([]);
     const [produto, setProduto] = useState();
->>>>>>> main
 
   const handleSubmit = (event) => {
     event.preventDefault();
