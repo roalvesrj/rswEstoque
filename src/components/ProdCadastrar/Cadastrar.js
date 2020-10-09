@@ -12,6 +12,7 @@ import Footer from '../Footer/Footer';
 import {Picker} from '@react-native-community/picker';
 import serviceCategoria from '../../api/categoria';
 import serviceProduto from '../../api/produto';
+<<<<<<< HEAD
 //import serviceProduto from '../../api/produto';
 //import Alert from "react-bootstrap/Alert";
 
@@ -27,6 +28,15 @@ const ProdCadastrar = ({navigation}) => {
   const [nome, setNome] = useState('');
   const [qtdEstoque, setQtdEstoque] = useState('');
   const [valor, setValor] = useState('');
+=======
+import ImagePick from '../ImagePick/ImagePick';
+import Styles from './Style';
+
+const ProdCadastrar = ({ navigation }) => {
+    const [url, setUrl] = useState('');
+    const [categorias, setCategorias] = useState([]);
+    const [produto, setProduto] = useState();
+>>>>>>> main
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -40,6 +50,7 @@ const ProdCadastrar = ({navigation}) => {
       valor: produto.valor,
     };
 
+<<<<<<< HEAD
     ProdutoService.incluir(data)
       .then((response) => {
         if (response.status === 201) {
@@ -143,6 +154,64 @@ const ProdCadastrar = ({navigation}) => {
       <Footer navigation={navigation} />
     </>
   );
+=======
+    return (
+        <>
+            <Header />
+            <ScrollView>
+                <View style={Styles.Container}>
+                    <View style={Styles.ContainerImage}>
+                        <ImagePick navigation={navigation} url={setUrl} />
+                    </View>
+                    <View style={Styles.ContainerButton}>
+                        <TouchableHighlight>
+                            <TextInput
+                                style={Styles.Input}
+                                placeholder="Data de fabricação"
+                            />
+                        </TouchableHighlight>
+                    </View>
+                    <View style={Styles.ContainerButton}>
+                        <TouchableHighlight>
+                            <View>
+                                <TextInput style={Styles.Input} placeholder="descricao" />
+                            </View>
+                        </TouchableHighlight>
+                    </View>
+                    <View style={Styles.ContainerButton}>
+                        <TouchableHighlight>
+                            <View>
+                                <TextInput style={Styles.Input} placeholder="nome" />
+                            </View>
+                        </TouchableHighlight>
+                    </View>
+                    <View style={Styles.ContainerButton}>
+                        <Picker>
+                            {categorias.map((c, index) => (
+                                <Picker.Item key={index} label={c.nome} value={c.id} />
+                            ))}
+                        </Picker>
+                    </View>
+                    <View style={Styles.ContainerButton}>
+                        <TouchableHighlight>
+                            <View>
+                                <TextInput style={Styles.Input} placeholder="qtdEstoque" />
+                            </View>
+                        </TouchableHighlight>
+                    </View>
+                    <View style={Styles.ContainerButton}>
+                        <TouchableHighlight>
+                            <View>
+                                <TextInput style={Styles.Input} placeholder="valor R$" />
+                            </View>
+                        </TouchableHighlight>
+                    </View>
+                </View>
+            </ScrollView>
+            <Footer navigation={navigation} />
+        </>
+    );
+>>>>>>> main
 };
 
 export default ProdCadastrar;

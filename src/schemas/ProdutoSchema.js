@@ -1,8 +1,8 @@
 const Realm = require('realm');
 
-class RepositorySchema {
+class ProdutoSchema {
   static schema = {
-    name: 'Repository',
+    name: 'Produto',
     primaryKey: 'id',
     properties: {
       id: {type: 'int', indexed: true},
@@ -20,4 +20,4 @@ class RepositorySchema {
   };
 }
 
-export default RepositorySchema;
+export default ProdutoSchema;
