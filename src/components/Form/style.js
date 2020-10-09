@@ -1,18 +1,23 @@
-import styled from "styled-components/native";
+import { StyleSheet } from 'react-native';
 
-export const Container = styled.View`
-  display: flex;
-  margin-top: 40px;
-  width: 100px;
-  border-radius: 10px;
-  padding: 5px;
-  justify-content: center;
-  align-self: center;
-  background-color: #3483FA;
-`;
+const styles = StyleSheet.create({
 
-export const Button = styled.TouchableHighlight`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+  Container: {
+    flex: 1,
+    marginTop: 40,
+    width: 100,
+    borderRadius: 10,
+    padding: 5,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    backgroundColor: '#000'
+  },
+
+  Button: {
+    display: flex,
+    justifyContent: 'center',
+    alignUtems: 'center'
+  }
+});
+
+export default styles;

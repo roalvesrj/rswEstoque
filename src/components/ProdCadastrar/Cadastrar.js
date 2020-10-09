@@ -7,9 +7,7 @@ import {Picker} from '@react-native-community/picker';
 import ImagePick from '../ImagePick/ImagePick';
 import serviceCategoria from '../../api/categoria';
 import serviceProduto from '../../api/produto';
-import Submit from '../Form/Submit';
-
-import Alert from 'react-bootstrap/Alert';
+import ButtonCadastrar from '../Form/ButtonCadastrar';
 
 import Styles from './Style';
 
@@ -17,15 +15,13 @@ const ProdCadastrar = ({navigation}) => {
   const [url, setUrl] = useState('');
   const [categorias, setCategorias] = useState([]);
   const [produto, setProduto] = useState();
-  const [show, setShow] = useState(false);
-  const [variant, setVariant] = useState('');
   const [dataFabricacao, setDataFabricacao] = useState('');
   const [descricao, setDescricao] = useState('');
   const [nome, setNome] = useState('');
   const [qtdEstoque, setQtdEstoque] = useState('');
   const [valor, setValor] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleCadastrar = (event) => {
     event.preventDefault();
     let data = {
       dataFabricacao: produto.dataFabricacao,
@@ -39,20 +35,12 @@ const ProdCadastrar = ({navigation}) => {
       .incluir(data)
       .then((response) => {
         if (response.status === 201) {
-          setVariant('success');
-          setMensagem('Produto criado com sucesso!');
-          setShow(true);
+          alert('Produto cadastrado com sucesso!');
         }
       })
       .catch((error) => {
-        setVariant('danger');
-        setMensagem('Erro ao cadastrar!');
-        setShow(true);
+        alert('Erro ao cadastrar!');
       });
-
-    setTimeout(() => {
-      setShow(false);
-    }, 4000);
 
     console.log(data);
 
@@ -77,9 +65,6 @@ const ProdCadastrar = ({navigation}) => {
     <>
       <Header />
       <ScrollView>
-        <Alert show={show} variant={variant}>
-          {mensagem}
-        </Alert>
         <View style={Styles.Container}>
           <View style={Styles.ContainerImage}>
             <ImagePick navigation={navigation} url={setUrl} />
@@ -88,6 +73,7 @@ const ProdCadastrar = ({navigation}) => {
             <TouchableHighlight>
               <TextInput
                 style={Styles.Input}
+                value={dataFabricacao}
                 placeholder="Data de fabricação"
               />
             </TouchableHighlight>
@@ -95,14 +81,14 @@ const ProdCadastrar = ({navigation}) => {
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
               <View>
-                <TextInput style={Styles.Input} placeholder="descricao" />
+                <TextInput style={Styles.Input} placeholder="descricao" value={descricao}/>
               </View>
             </TouchableHighlight>
           </View>
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
               <View>
-                <TextInput style={Styles.Input} placeholder="nome" />
+                <TextInput style={Styles.Input} placeholder="nome" value={nome}/>
               </View>
             </TouchableHighlight>
           </View>
@@ -116,18 +102,18 @@ const ProdCadastrar = ({navigation}) => {
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
               <View>
-                <TextInput style={Styles.Input} placeholder="qtdEstoque" />
+                <TextInput style={Styles.Input} placeholder="qtdEstoque" value={qtdEstoque}/>
               </View>
             </TouchableHighlight>
           </View>
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
               <View>
-                <TextInput style={Styles.Input} placeholder="valor R$" />
+                <TextInput style={Styles.Input} placeholder="valor R$" value={valor}/>
               </View>
             </TouchableHighlight>
           </View>
-          <Submit onPress={handleSubmit}/>
+          <ButtonCadastrar onPress={handleCadastrar} />
         </View>
       </ScrollView>
       <Footer navigation={navigation} />
