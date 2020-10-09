@@ -10,8 +10,8 @@ import {
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import {Picker} from '@react-native-community/picker';
-import serviceCategoria from '../../api/categoria';
-import serviceProduto from '../../api/produto';
+//import serviceCategoria from '../../api/categoria';
+//import serviceProduto from '../../api/produto';
 import ImagePick from '../ImagePick/ImagePick';
 import Styles from './Style';
 
