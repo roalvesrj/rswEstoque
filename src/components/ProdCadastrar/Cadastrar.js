@@ -32,111 +32,6 @@ const ProdCadastrar = ({ navigation }) => {
       valor: produto.valor,
     };
 
-<<<<<<< HEAD
-    ProdutoService.incluir(data)
-      .then((response) => {
-        if (response.status === 201) {
-          setVariant('success');
-          setMensagem('Produto criado com sucesso!');
-          setShow(true);
-        }
-      })
-      .catch((error) => {
-        setVariant('danger');
-        setMensagem('Erro ao cadastrar!');
-        setShow(true);
-      });
-
-    setTimeout(() => {
-      setShow(false);
-    }, 4000);
-
-    console.log(data);
-
-    setProduto('');
-    setDataFabricacao('');
-    setDescricao('');
-    setNome('');
-    setQtdEstoque('');
-    setValor('');
-  };
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setProduto({ ...Produto, [name]: value })
-    if(name == "nome")
-    {setNome(value)}
-    else {setDescricao(value)}
-    
-    console.log(Produto)      
-};
-
-  useEffect(() => {
-    serviceCategoria
-      .listarTodos()
-      .then((response) => {
-        setCategorias(response.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  return (
-    <>
-      <Header />
-      <ScrollView>
-        <View style={Styles.Container}>
-          <View style={Styles.ContainerImage}>
-            <Image style={Styles.Image} />
-          </View>
-          <View style={Styles.ContainerButton}>
-            <TouchableHighlight>
-              <TextInput
-                style={Styles.Input}
-                placeholder="Data de fabricação"
-              />
-            </TouchableHighlight>
-          </View>
-          <View style={Styles.ContainerButton}>
-            <TouchableHighlight>
-              <View>
-                <TextInput style={Styles.Input} placeholder="descricao" />
-              </View>
-            </TouchableHighlight>
-          </View>
-          <View style={Styles.ContainerButton}>
-            <TouchableHighlight>
-              <View>
-                <TextInput style={Styles.Input} placeholder="nome" />
-              </View>
-            </TouchableHighlight>
-          </View>
-          <View style={Styles.ContainerButton}>
-            <Picker>
-              {categorias.map((c, index) => (
-                <Picker.Item key={index} label={c.nome} value={c.id} />
-              ))}
-            </Picker>
-          </View>
-          <View style={Styles.ContainerButton}>
-            <TouchableHighlight>
-              <View>
-                <TextInput style={Styles.Input} placeholder="qtdEstoque" />
-              </View>
-            </TouchableHighlight>
-          </View>
-          <View style={Styles.ContainerButton}>
-            <TouchableHighlight>
-              <View>
-                <TextInput style={Styles.Input} placeholder="valor R$" />
-              </View>
-            </TouchableHighlight>
-          </View>
-        </View>
-      </ScrollView>
-      <Footer navigation={navigation} />
-    </>
-  );
-=======
     return (
         <>
             <Header />
@@ -193,7 +88,6 @@ const ProdCadastrar = ({ navigation }) => {
             <Footer navigation={navigation} />
         </>
     );
->>>>>>> main
 };
 
 export default ProdCadastrar;
