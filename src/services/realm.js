@@ -1,9 +1,9 @@
 import Realm from 'realm';
-import ProdutoSchema from '../schemas/ProdutoSchema';
+import FuncionarioSchema from '../schemas/FuncionarioSchema';
 
 function getRealm() {
   return Realm.open({
-    schema: [ProdutoSchema],
+    schema: [FuncionarioSchema],
   });
 }
 
