@@ -47,8 +47,8 @@ const Atualizar = ({route, navigation}) => {
         setNome(response.data.nome);
         setDescricao(response.data.descricao);
         setDataFabricacao(response.data.dataFabricacao);
-        setValor(response.data.valor);
-        setQtdEstoque(response.data.qtdEstoque);
+        setValor(response.data.valor.toString());
+        setQtdEstoque(response.data.qtdEstoque.toString());
         setIdCategoria(response.data.idCategoria);
         setUrl(response.data.fotoLink);
       })
@@ -79,7 +79,8 @@ const Atualizar = ({route, navigation}) => {
         }
       })
       .catch((error) => {
-        alert('Erro ao atualizar!');
+        alert('Erro ao atualizar!', error);
+        console('Erro ao atualizar!', error);
       });
 
     console.log(data);
