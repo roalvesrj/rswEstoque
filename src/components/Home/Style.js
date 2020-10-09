@@ -7,33 +7,36 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         backgroundColor: '#fff'
     },
+    containerDestaque: {
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: 'row',
+        marginBottom: 50
+    },
+    icon: {
+        marginTop: 5,
+        marginRight: 10,
+        color: '#333',
+        fontSize: 26,
+    },
     destaque: {
         paddingBottom: 20,
         color: '#333',
         fontSize: 26,
         fontFamily: 'Euclid Extra Bold'
     },
-    containerCapas: {
+    button: {
         flexDirection: 'row',
-        marginBottom: 50
+        marginBottom: 30,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 3,
+        backgroundColor: '#fdd922'
     },
-    capa: {
-        width: 185,
-        height: 185,
-        marginBottom: 5
-    },
-    boxCapa: {
-        marginRight: 15
-    },
-    destaqueCapas: {
-        marginBottom: 5,
-        color: '#666',
-        fontSize: 16,
-        fontWeight: 'bold',
-        fontFamily: 'Euclid Extra Bold'
-    },
-    textoCapas: {
-        color: '#999'
+    buttonTexto: {
+        color: '#333',
+        fontSize: 20,
+        fontFamily: 'Euclid Extra'
     }
 });
 

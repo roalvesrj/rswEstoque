@@ -17,14 +17,6 @@ const Footer = ({ navigation }) => {
                         <Text style={Styles.texto}>Início</Text>
                     </View>
                 </TouchableHighlight>
-                <TouchableHighlight
-                    underlayColor="transparent"
-                    onPress={() => navigation.navigate('EstoqueListar')}>
-                    <View style={Styles.subcontainer}>
-                        <Icon name="boxes" style={Styles.icon} />
-                        <Text style={Styles.texto}>Estoque</Text>
-                    </View>
-                </TouchableHighlight>
             </View>
         </>
     );
