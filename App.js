@@ -6,6 +6,7 @@ import Login from './src/components/Login/Login';
 import Home from './src/components/Home/Home';
 import EstoqueListar from './src/screens/Estoque/Listar';
 import ProdCadastrar from './src/components/ProdCadastrar/Cadastrar';
+import ProdAtualizar from './src/screens/Produto/Atualizar';
 import ViewPhotos from './src/components/ImagePick/ViewPhotos';
 
 const Stack = createStackNavigator();
@@ -18,6 +19,7 @@ const App = () => {
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="EstoqueListar" component={EstoqueListar} />
                 <Stack.Screen name="ProdCadastrar" component={ProdCadastrar} />
+                <Stack.Screen name="ProdAtualizar" component={ProdAtualizar} />
                 <Stack.Screen name="ViewPhotos" component={ViewPhotos} />
             </Stack.Navigator>
         </NavigationContainer>
