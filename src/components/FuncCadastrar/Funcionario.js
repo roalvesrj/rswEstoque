@@ -6,11 +6,20 @@ import style from './Style';
 const Funcionario = () => {
     const [input, setInput] = useState('');
 
-    async function saveFuncionario(funcionario) {
-        const data = {};
+  async function saveFuncionario(FuncionarioSchema) {
+    const data = {
+      id: funcionario.id,
+      name: funcionario.nome,
+      cpf: funcionario.cpf,
+      password: funcionario.senha,
+    };
 
-        const realm = await getReaml();
-    }
+    const realm = await getReaml();
+
+    realm.write(() => {
+      realm.create('FuncionarioSchema', data);
+    });
+  }
 
     return (
         <>
@@ -34,7 +43,3 @@ const Funcionario = () => {
 };
 
 export default Funcionario;
-
-realm.write(() => {
-    const produto = realm.create('Repository');
-});
