@@ -19,22 +19,26 @@ import Styles from './Style';
 const ProdCadastrar = ({navigation}) => {
   const [url, setUrl] = useState('');
   const [categorias, setCategorias] = useState([]);
-  const [produto, setProduto] = useState();
   const [dataFabricacao, setDataFabricacao] = useState('');
   const [descricao, setDescricao] = useState('');
   const [nome, setNome] = useState('');
   const [qtdEstoque, setQtdEstoque] = useState('');
   const [valor, setValor] = useState('');
+  const [idCategoria, setIdCategoria] = useState('');
 
-  const handleCadastrar = (event) => {
-    event.preventDefault();
+  const handleCadastrar = () => {
     let data = {
-      dataFabricacao: produto.dataFabricacao,
-      descricao: produto.descricao,
-      nome: produto.nome,
-      qtdEstoque: produto.qtdEstoque,
-      valor: produto.valor,
+      dataFabricacao: '',
+      idCategoria: idCategoria,
+      descricao: descricao,
+      nome: nome,
+      idFuncionario: 3,
+      qtdEstoque: qtdEstoque,
+      valor: valor,
+      fotoLink: url,
     };
+
+    console.log(data);
 
     serviceProduto
       .incluir(data)
@@ -49,25 +53,12 @@ const ProdCadastrar = ({navigation}) => {
 
     console.log(data);
 
-    setProduto('');
     setDataFabricacao('');
     setDescricao('');
     setNome('');
     setQtdEstoque('');
     setValor('');
   };
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    console.log(name)
-
-    setProduto({ ...produto, [name]: value })
-    if(name == "nome")
-    {setNome(value)}
-    else {setDescricao(value)}
-    
-   
-};
 
   useEffect(() => {
     serviceCategoria
@@ -88,7 +79,8 @@ const ProdCadastrar = ({navigation}) => {
           </View>
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
-              <TextInput name="dataFabricacao" value={dataFabricacao} onChange={e => handleInputChange(e)}
+              <TextInput
+                onChangeText={(value) => setDataFabricacao(value)}
                 style={Styles.Input}
                 placeholder="Data de fabricação"
               />
@@ -97,39 +89,53 @@ const ProdCadastrar = ({navigation}) => {
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
               <View>
-                <TextInput name="descricao" value={descricao} onChange={e => handleInputChange(e)} 
-                style={Styles.Input} placeholder="descricao" />
+                <TextInput
+                  onChangeText={(value) => setDescricao(value)}
+                  style={Styles.Input}
+                  placeholder="descricao"
+                />
               </View>
             </TouchableHighlight>
           </View>
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
               <View>
-                <TextInput name="nome" value={nome} onChange={e => handleInputChange(e)}
-                style={Styles.Input} placeholder="nome" />
+                <TextInput
+                  onChangeText={(value) => setNome(value)}
+                  style={Styles.Input}
+                  placeholder="nome"
+                />
               </View>
             </TouchableHighlight>
           </View>
           <View style={Styles.ContainerButton}>
-            <Picker>
-              {categorias.map((c, index) => (
-                <Picker.Item key={index} label={c.nome} value={c.id} />
-              ))}
+            <Picker
+              selectedValue={idCategoria}
+              onValueChange={(itemValue) => setIdCategoria(itemValue)}>
+              {categorias.map((c) => {
+                return <Picker.Item key={c.id} label={c.nome} value={c.id} />;
+              })}
             </Picker>
           </View>
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
               <View>
-                <TextInput name="qtdEstoque" value={qtdEstoque} onChange={e => handleInputChange(e)}
-                style={Styles.Input} placeholder="qtdEstoque" />
+                <TextInput
+                  onChangeText={(value) => setQtdEstoque(value)}
+                  style={Styles.Input}
+                  placeholder="qtdEstoque"
+                />
               </View>
             </TouchableHighlight>
           </View>
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
               <View>
-                <TextInput name="valor" value={valor} onChange={e => handleInputChange(e)}
-                style={Styles.Input} placeholder="valor R$" />
+                <TextInput
+                  onChangeText={(value) => setValor(value)}
+                  style={Styles.Input}
+                  placeholder="valor R$"
+                />
               </View>
             </TouchableHighlight>
           </View>
