@@ -6,8 +6,6 @@ import ImagePicker from 'react-native-image-crop-picker';
 import {ActionSheet, Root} from 'native-base';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-import Icon from 'react-native-vector-icons/FontAwesome5';
-
 //import styles from './Style';
 
 const ImagePick = (props) => {
