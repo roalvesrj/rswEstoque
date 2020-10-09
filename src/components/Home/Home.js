@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import { View, Text, Image, ScrollView } from 'react-native';
-
+import {View, Text, Image, ScrollView} from 'react-native';
 
 import Header from './../Header/Header';
 import Footer from './../Footer/Footer';
@@ -17,7 +16,7 @@ const Home = ({navigation}) => {
     <>
       <Header />
       <ScrollView>
-        <ImagePick navigation={navigation} url={setUrl} />
+        <ListarProdutoPorCategoria />
       </ScrollView>
       <Text>{url}</Text>
       <Footer navigation={navigation} />
