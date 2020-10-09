@@ -19,18 +19,10 @@ const Footer = ({navigation}) => {
         </TouchableHighlight>
         <TouchableHighlight
           underlayColor="transparent"
-          onPress={() => navigation.navigate('CatListar')}>
-          <View style={Styles.subcontainer}>
-            <Icon name="list-ul" style={Styles.icon} />
-            <Text style={Styles.texto}>Categorias</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableHighlight
-          underlayColor="transparent"
-          onPress={() => navigation.navigate('ProdListar')}>
+          onPress={() => navigation.navigate('EstoqueListar')}>
           <View style={Styles.subcontainer}>
             <Icon name="boxes" style={Styles.icon} />
-            <Text style={Styles.texto}>Produtos</Text>
+            <Text style={Styles.texto}>Estoque</Text>
           </View>
         </TouchableHighlight>
       </View>
