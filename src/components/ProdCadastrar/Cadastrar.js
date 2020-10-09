@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Image,
@@ -9,59 +9,77 @@ import {
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+//import ProdutoService from '../../api/produto';
 
+//import Alert from "react-bootstrap/Alert";
 
 const ProdCadastrar = () => {
+  /*const [produto, setProduto] = useState();
+  const [show, setShow] = useState(false);
+  const [variant, setVariant] = useState('');
+  const [dataFabricacao, setDataFabricacao] = useState('');
+  const [descricao, setDescricao] = useState('');
+  const [fotoLink, setFotoLink] = useState('');
+  const [nome, setNome] = useState('');
+  const [nomeCategoria, setNomeCategoria] = useState('');
+  const [nomeFuncionario, setNomeFuncionario] = useState('');
+  const [qtdEstoque, setQtdEstoque] = useState('');
+  const [valor, setValor] = useState('');
 
-  const [categorias, setCategorias] = useState([]);
-
-  const [produto, setProduto] = useState({
-    dataFabricacao: "2019-10-01T00:00:00Z",
-    descricao: "",
-    fotoLink: "",
-    id: 0,
-    idCategoria: 0,
-    idFuncionario: 1,
-    nome: "",
-    nomeCategoria: "",
-    nomeFuncionario: "",
-    qtdEstoque: 0,
-    valor: 0,
-  });
-
-  useEffect(() => {
-    const handleListCategorias = async () => {
-      try {
-        const response = await api.get("/categoria");
-        const list = response.data;
-        const namesList = [];
-        list.forEach((item) => {
-          namesList.push(item);
-        });
-        setCategorias(namesList);
-      } catch (error) {
-        alert("Erro no acesso a API");
-      }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let data = {
+      dataFabricacao: produto.dataFabricacao,
+      descricao: produto.descricao,
+      fotoLink: produto.fotoLink,
+      id: 0,
+      idCategoria: 0,
+      idFuncionario: 1,
+      nome: produto.nome,
+      nomeCategoria: produto.nomeCategoria,
+      nomeFuncionario: produto.nomeFuncionario,
+      qtdEstoque: produto.qtdEstoque,
+      valor: produto.valor,
     };
-    handleListCategorias();
-  }, []);
 
-  const handleAddProduct = async () => {
-    try {
-      await api.post("/produto", produto);
-    } catch (error) {
-      alert("Erro no acesso a API");
-    }
-  };
+    ProdutoService.incluir(data)
+      .then((response) => {
+        if (response.status === 201) {
+          setVariant('success');
+          setMensagem('Produto criado com sucesso!');
+          setShow(true);
+        }
+      })
+      .catch((error) => {
+        setVariant('danger');
+        setMensagem('Erro ao cadastrar!');
+        setShow(true);
+      });
 
+    setTimeout(() => {
+      setShow(false);
+    }, 4000);
 
+    console.log(data);
+
+    setProduto('');
+    setDataFabricacao('');
+    setDescricao('');
+    setFotoLink('');
+    setNome('');
+    setNomeCategoria('');
+    setNomeFuncionario('');
+    setQtdEstoque('');
+    setValor('');
+  };*/
+  
   return (
     <>
       <Header />
       <ScrollView>
         <View style={Styles.Container}>
           <View style={Styles.ContainerImage}>
-            <Image style={Styles.Image}/>
+            <Image style={Styles.Image} />
           </View>
           <View style={Styles.ContainerButton}>
             <TouchableHighlight>
