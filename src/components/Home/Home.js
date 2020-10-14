@@ -1,23 +1,36 @@
-import React, { useState } from 'react';
-import { Text, Image, ScrollView } from 'react-native';
+import React from 'react';
+import { ScrollView, Text, View, TouchableHighlight } from 'react-native';
 
-import Header from './../Header/Header';
-import Footer from './../Footer/Footer';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
-import ListarProdutoPorCategoria from '../ScrollViewCategorias/ScrollViewCategorias';
-
+import ListarProdutoPorCategoria from '../../components/ScrollViewCategorias/ScrollViewCategorias';
 import Styles from './Style';
 
 const Home = ({ navigation }) => {
-    const [url, setUrl] = useState('');
-
     return (
         <>
             <Header />
-            <ScrollView showsVerticalScrollIndicator={false}>
+            <ScrollView showsVerticalScrollIndicator={false} style={Styles.container}>
+                <View style={Styles.containerDestaque}>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Icon name="boxes" style={Styles.icon} />
+                        <Text style={Styles.destaque}>Estoque</Text>
+                    </View>
+                    <TouchableHighlight
+                        style={Styles.button}
+                        underlayColor="transparent"
+                        onPress={() => {
+                            navigation.navigate('ProdCadastrar')
+                        }}>
+                        <View>
+                            <Text style={Styles.link}>Cadastrar</Text>
+                        </View>
+                    </TouchableHighlight>
+                </View>
                 <ListarProdutoPorCategoria navigation={navigation} />
             </ScrollView>
-            <Text>{url}</Text>
             <Footer navigation={navigation} />
         </>
     );
